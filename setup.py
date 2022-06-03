@@ -11,7 +11,7 @@ MAINTAINER = 'Shashaank Vattikuti'
 MAINTAINER_EMAIL = 'svattikuti@cittatech.org'
 URL = 'https://github.com/ShashaankV/irasa_spectrogram'
 LICENSE = ('LICENSE.txt',)
-DOWNLOAD_URL = 'https://github.com/ShashaankV/irasa_spectrogram
+DOWNLOAD_URL = 'https://github.com/ShashaankV/irasa_spectrogram'
 VERSION = '0.1.0'
 # PACKAGE_DATA = {'yasa.data.icons': ['*.svg']}
 
