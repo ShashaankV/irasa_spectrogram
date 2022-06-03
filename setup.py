@@ -18,7 +18,7 @@ VERSION = '0.1.0'
 INSTALL_REQUIRES = ['intervaltree==3.1.0',
 'matplotlib==3.3.4',
 'mne==0.22.0',
-'numpy==1.20.0',
+'numpy',
 'pandas==1.2.1',
 'plotly==4.9.0',
 'scipy==1.6.0',
