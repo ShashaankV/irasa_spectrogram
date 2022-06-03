@@ -34,7 +34,7 @@ VERSION = '0.1.0'
 # ]
 
 PACKAGES = [
-    'irasa',
+    './code/irasa',
 ]
 
 # CLASSIFIERS = [
