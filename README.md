@@ -4,13 +4,21 @@ Extension of the IRASA method for time-varying spectral analyses.
 
 ## Description
 
-Time series such as EEG consist of oscillatory- and aperiodic-type activity. These represent different processes on interest. Aperiodic are likened to fractal series and power-law spectra, where there is broad decline in the power spectrum that follows a 1/frequency<sup>x</sup> function. IRASA is a method for taking a raw spectrum and estimating two new spectra - aperiodic and oscillatory spectra. 
+Time series such as EEG consist of oscillatory- and aperiodic-type activity. These represent different processes on interest. Aperiodic are likened to fractal series and power-law spectra, where there is broad decline in the power spectrum that follows a 1/frequency<sup>x</sup> function. 
 
-IRASA (Irregular Resampling Auto-Spectral Analysis) is a method for separating these components. In brief, it uses the self-affine property of fractal series where up- or down- sampling such series results in similar statistical properties. The power spectrum is one of these properties. For a purely fractal (w/ aperiodic 1/f spectrum), the spectrum is preserved but with a change in scale. This scale is given by h<sup>H</sup>, where h is the resampling factor and H is called the <a href=https://en.wikipedia.org/wiki/Hurst_exponent target="_blank"></href> Hurst exponent</a>. With a mixed oscillatory and aperiodic signal, up- and down- sampling can be used to shift the osc component while preserving the aperiodic component. Taking the inner product of such shifted spectra results in an attenuation of the osc component while preserving the aperiodic. To achieve this the h<sup>H</sup> scaling factor has to be accounted for. IRASA achieves this by using h, 1/h reciprocal pairs this canceling the h<sup>H</sup> factor. 
+
+IRASA (Irregular Resampling Auto-Spectral Analysis) is a method for taking a raw spectrum and estimating two new spectra - aperiodic and oscillatory spectra. 
+
+In brief, IRASA and other resampling methods use the self-affine property of fractal series where up- or down- sampling such series results in similar statistical properties. The power spectrum is one of these properties. For a purely fractal (w/ aperiodic 1/f spectrum), the spectrum is preserved but with a change in scale. This scale is given by h<sup>H</sup>, where h is the resampling factor and H is called the <a href=https://en.wikipedia.org/wiki/Hurst_exponent target="_blank"></href> Hurst exponent</a>. With a mixed oscillatory and aperiodic signal, up- and down- sampling can be used to shift the osc component while preserving the aperiodic component. Taking the inner product of such shifted spectra results in an attenuation of the osc component while preserving the aperiodic. To achieve this the h<sup>H</sup> scaling factor has to be accounted for. IRASA achieves this by using h, 1/h reciprocal pairs this canceling the h<sup>H</sup> factor. 
 
 In practice (see /notebook/example.ipynb) this works fairly well based on our predictive modeling results. However, there are some artifacts to be aware off. First, IRASA often adds small artifactual oscillatory peaks to the aperiodic estimate resulting in "negative osc power". These peaks are the "average" of the shifted true osc peaks. Second, there are edge effects. Aperiodic and oscillatory spectra should be analyzed within bands somewhat away from the band limits of the original signal. Near these extrema, baseline artifacts are introduced. This is important to note for preprocessing that uses bandpass filters. We recommend bandpassing after IRASA is implemented.  
 
-Motivation -  IRASA spectrogram extends work by 
+Motivation -  IRASA spectrogram extends the algorithm implemented by [Vallat and Walker (1)](#refs) which was written for a whole series power spectrum. We are interested in tracking changes in the oscillatory (and aperiodic) across time. Thus, we extended this method to generate a time-frequency series (aka spectrogram). 
+[insert figure]
+
+In addition, the extended methods and parameters used here were motivated by several use cases: examing different stages of sleep, comparing oscillatory bands across sleep, and predicting sleep effects in performance. Thus, we've included methods to align the IRASA spectrograms with conventional sleep staging, compare oscillatory bands, smoothing to enhance signal (validated by [predictive performance (2)](#refs)), etc.  
+
+
 
 
 ## Table of Contents
