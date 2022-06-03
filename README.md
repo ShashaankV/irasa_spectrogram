@@ -6,7 +6,7 @@ Extension of the IRASA method for time-varying spectral analyses.
 
 Time series such as EEG consist of oscillatory- and aperiodic-type activity. These represent different processes on interest. Aperiodic are likened to fractal series and power-law spectra, where there is broad decline in the power spectrum that follows a 1/frequency<sup>x</sup> function. 
 
-IRASA (Irregular Resampling Auto-Spectral Analysis) is a method for separating these components. In brief, it uses the self-affine property of fractal series where up- or down- sampling such series results in similar statistical properties. The power spectrum is one of these properties. For a purely fractal (w/ aperiodic 1/f spectrum), the spectrum is preserved but with a change in scale. This scale is given by h<sup>H</sup>, where h is the resampling factor and H is called the <a href=https://en.wikipedia.org/wiki/Hurst_exponent></href> Hurst exponent</a>. IRASA in particular
+IRASA (Irregular Resampling Auto-Spectral Analysis) is a method for separating these components. In brief, it uses the self-affine property of fractal series where up- or down- sampling such series results in similar statistical properties. The power spectrum is one of these properties. For a purely fractal (w/ aperiodic 1/f spectrum), the spectrum is preserved but with a change in scale. This scale is given by h<sup>H</sup>, where h is the resampling factor and H is called the <a href=https://en.wikipedia.org/wiki/Hurst_exponent target="_blank"></href> Hurst exponent</a>. IRASA in particular
 
 Motivation -  
 
