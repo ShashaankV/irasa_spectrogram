@@ -80,7 +80,7 @@ if __name__ == "__main__":
           maintainer_email=MAINTAINER_EMAIL,
           description=DESCRIPTION,
           long_description=LONG_DESCRIPTION,
-          license_files = LICENSE,
+          license = LICENSE,
           cmdclass = {'egg_info': egg_info_ex},
           url=URL,
           version=VERSION,
