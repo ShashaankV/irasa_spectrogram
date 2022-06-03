@@ -48,20 +48,20 @@ PACKAGES = [
 #     'Operating System :: MacOS'
 # ]
 
-from setuptools.command.egg_info import egg_info
+# from setuptools.command.egg_info import egg_info
 
 
-class egg_info_ex(egg_info):
-    """Includes license file into `.egg-info` folder."""
+# class egg_info_ex(egg_info):
+#     """Includes license file into `.egg-info` folder."""
 
-    def run(self):
-        # don't duplicate license into `.egg-info` when building a distribution
-        if not self.distribution.have_run.get('install', True):
-            # `install` command is in progress, copy license
-            self.mkpath(self.egg_info)
-            self.copy_file('LICENSE.txt', self.egg_info)
+#     def run(self):
+#         # don't duplicate license into `.egg-info` when building a distribution
+#         if not self.distribution.have_run.get('install', True):
+#             # `install` command is in progress, copy license
+#             self.mkpath(self.egg_info)
+#             self.copy_file('LICENSE.txt', self.egg_info)
 
-        egg_info.run(self)
+#         egg_info.run(self)
 
 
 
@@ -81,7 +81,7 @@ if __name__ == "__main__":
           description=DESCRIPTION,
           long_description=LONG_DESCRIPTION,
         #   license = LICENSE,
-          cmdclass = {'egg_info': egg_info_ex},
+        #   cmdclass = {'egg_info': egg_info_ex},
           url=URL,
           version=VERSION,
           download_url=DOWNLOAD_URL,
