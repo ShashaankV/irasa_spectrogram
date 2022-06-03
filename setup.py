@@ -9,9 +9,9 @@ IRASA spectrogram
 DISTNAME = 'irasa_spectrogram'
 MAINTAINER = 'Shashaank Vattikuti'
 MAINTAINER_EMAIL = 'svattikuti@cittatech.org'
-URL = 'https://github.com/ShashaankV/irasa_spectrogram'
+URL = 'https://github.com/ShashaankV/irasa_spectrogram/code'
 LICENSE = ('LICENSE.txt',)
-DOWNLOAD_URL = 'https://github.com/ShashaankV/irasa_spectrogram'
+DOWNLOAD_URL = 'https://github.com/ShashaankV/irasa_spectrogram/code'
 VERSION = '0.1.0'
 # PACKAGE_DATA = {'yasa.data.icons': ['*.svg']}
 
@@ -34,7 +34,7 @@ VERSION = '0.1.0'
 # ]
 
 PACKAGES = [
-    './code/irasa',
+    'irasa',
 ]
 
 # CLASSIFIERS = [
