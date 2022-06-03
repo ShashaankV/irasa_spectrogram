@@ -15,23 +15,16 @@ DOWNLOAD_URL = 'https://github.com/ShashaankV/irasa_spectrogram/'
 VERSION = '0.1.0'
 # PACKAGE_DATA = {'yasa.data.icons': ['*.svg']}
 
-# INSTALL_REQUIRES = [
-#     'numpy',
-#     'scipy',
-#     'pandas',
-#     'matplotlib',
-#     'seaborn',
-#     'mne>=0.20.0',
-#     'numba',
-#     'outdated',
-#     'antropy',
-#     'scikit-learn',
-#     'tensorpac>=0.6.5',
-#     'pyriemann>=0.2.7',
-#     'lspopt',
-#     'ipywidgets',
-#     'joblib'
-# ]
+INSTALL_REQUIRES = ['intervaltree==3.1.0',
+'matplotlib==3.3.4',
+'mne==0.22.0',
+'numpy==1.20.0',
+'pandas==1.2.1',
+'plotly==4.9.0',
+'scipy==1.6.0',
+'seaborn==0.11.1',
+'statsmodels==0.12.2',
+'tqdm==4.56.0']
 
 PACKAGES = [
     'irasa',
@@ -85,8 +78,8 @@ if __name__ == "__main__":
           url=URL,
           version=VERSION,
           download_url=DOWNLOAD_URL,
-        #   install_requires=INSTALL_REQUIRES,
-        #   include_package_data=True,
+          install_requires=INSTALL_REQUIRES,
+          include_package_data=True,
           packages=PACKAGES,
           package_dir = {'': 'code'}
         #   package_data=PACKAGE_DATA,
