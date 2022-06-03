@@ -10,7 +10,7 @@ DISTNAME = 'irasa_spectrogram'
 MAINTAINER = 'Shashaank Vattikuti'
 MAINTAINER_EMAIL = 'svattikuti@cittatech.org'
 URL = 'https://github.com/ShashaankV/irasa_spectrogram/'
-LICENSE = ('LICENSE.txt',)
+# LICENSE = ('LICENSE.txt',)
 DOWNLOAD_URL = 'https://github.com/ShashaankV/irasa_spectrogram/'
 VERSION = '0.1.0'
 # PACKAGE_DATA = {'yasa.data.icons': ['*.svg']}
@@ -80,7 +80,7 @@ if __name__ == "__main__":
           maintainer_email=MAINTAINER_EMAIL,
           description=DESCRIPTION,
           long_description=LONG_DESCRIPTION,
-          license = LICENSE,
+        #   license = LICENSE,
           cmdclass = {'egg_info': egg_info_ex},
           url=URL,
           version=VERSION,
