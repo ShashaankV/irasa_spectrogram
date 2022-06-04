@@ -17,7 +17,7 @@ def simpleaxis(ax):
     ax.spines['right'].set_visible(False)
     ax.spines['left'].set_visible(False)
 
-def plot_style(fs=14):
+def plot_style(fs=14,figsize=(10,5)):
     font = {'family' : 'sans-serif',
         'weight' : 'normal',
         'size'   : fs}
