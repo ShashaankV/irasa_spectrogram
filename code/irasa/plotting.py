@@ -26,7 +26,7 @@ def plot_style(fs=14,figsize=(10,5)):
     rcParams['axes.spines.left'] = False
     rcParams['axes.spines.bottom'] = False
     rcParams['axes.spines.top'] = False
-    rcParams["figure.figsize"] = (20, 10)
+    rcParams["figure.figsize"] = figsize
 
 def plot_w_ptlab(x,y,ptlab,color=None,xlab=None,ylab=None,fs=10,ax=None,label=None):
     if len(color)>0:
