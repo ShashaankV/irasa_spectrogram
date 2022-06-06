@@ -1,6 +1,6 @@
 # irasa_spectrogram
 
-Extension of the IRASA method for time-varying spectral analyses. 
+Extension of the [IRASA method](#refs) for time-varying spectral analyses. 
 
 ## Description
 
