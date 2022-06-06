@@ -34,6 +34,13 @@ In addition, the extended methods and parameters used here were motivated by sev
 
 <!-- What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. -->
 
+Install using pip -->
+> pip install git+https://github.com/ShashaankV/irasa_spectrogram.git
+
+Troubleshooting:
+
+If it fails to install then try upgrading pip. Alternatively you can download the source code and add to your path. Note this does not ensure that the other library requirements are installed. 
+
 ## Usage
 
 <!-- Provide instructions and examples for use. Include screenshots as needed.
@@ -42,11 +49,20 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
     ```md
     ![alt text](assets/images/screenshot.png) -->
-    ```
+
+<b>Highly recommend going through the examples.ipynb.</b>
+
+The primary implementation involves generating an irasa_spectrogram object. The only required argument is an MNE raw datafile. Optional arguments are:  ch (channel name), epoch_mask (table with binary filter for kept epochs), dfstg (pandas dataframe with scored sleep staging), conj_eye (boolean whether L/R eog is present and whether to calculate conjugate eye-movement), epoch_sec (window in seconds for epoch-level irasa), win_sec (window in sec for Welch-type method for FFT), h_ (array of upsample ratios).
 
 ## Credits
 
-Cite this paper if used in .. 
+If you use this package please cite:
+
+Shashaank Vattikuti, Thomas Balkin, Allen Braun, Samantha Riedy, Tracy Doty, John Hughes, 0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep, Sleep, Volume 45, Issue Supplement_1, June 2022, Pages A42–A43, https://doi.org/10.1093/sleep/zsac079.092
+
+
+    ```
+
 
 ## License
 
