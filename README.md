@@ -14,7 +14,7 @@ In brief, IRASA and other resampling methods use the self-affine property of fra
 In practice (see /notebook/example.ipynb) this works fairly well based on our predictive modeling results. However, there are some artifacts to be aware off. First, IRASA often adds small artifactual oscillatory peaks to the aperiodic estimate resulting in "negative osc power". These peaks are the "average" of the shifted true osc peaks. Second, there are edge effects. Aperiodic and oscillatory spectra should be analyzed within bands somewhat away from the band limits of the original signal. Near these extrema, baseline artifacts are introduced. This is important to note for preprocessing that uses bandpass filters. We recommend bandpassing after IRASA is implemented.  
 
 <b>Motivation</b> <it>irasa_spectrogram</it> extends the algorithm implemented by [Vallat and Walker](#refs) which was written for a single power spectrum over an entire time seires. We are interested in tracking changes in the oscillatory (and aperiodic) across time. Thus, we extended this method to generate a time-frequency series (aka spectrogram). 
-[insert figure]
+<!-- [insert figure] -->
 
 In addition, the extended methods and parameters used here were motivated by several use cases: examining different stages of sleep, comparing oscillatory bands across sleep, and predicting sleep effects in performance. Thus, we've included methods to align the IRASA spectrograms with conventional sleep staging, compare oscillatory bands, smoothing to enhance signal (validated by [predictive performance (2)](#refs)), etc.  
 
