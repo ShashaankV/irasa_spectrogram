@@ -95,6 +95,9 @@ As shown in the examples notebook, an example implementation using physionet dat
     ind_ = np.arange(0,len(freqs),25)
     plt.gca().set_yticks(ind_);
     plt.gca().set_yticklabels(freqs[ind_]);
+    plt.xlabel('epoch')
+    plt.ylabel('Hz')
+    
 
 
 </code>
