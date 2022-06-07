@@ -79,12 +79,22 @@ As shown in the examples notebook, an example implementation using physionet dat
     
     ## plot the per-epoch normalized oscillatory spectrum
     
-    X = np.array(gaussian_filter(a.Xosc,sigma=4))
-    bdnorm = np.tile(np.sum(X[1:int(4*win_sec),:],0),[np.shape(X)[0],1])
+    X = a.Xosc
+
+    normbd = (int(0.5*win_sec),int(15*win_sec)+1)
+    bdnorm = np.tile(np.sum(X[normbd[0]:normbd[1],:],0),[np.shape(X)[0],1])
     Xn = X/bdnorm
-    fig = px.imshow(Xn,origin='lower',y=a.irasa_freqs, aspect='auto', color_continuous_scale="thermal",zmax = 1e-2)
-    fig.update_traces(hovertemplate=None,hoverinfo='skip')
-    fig.show()
+
+    Xns = smoothX_2D(Xn)
+
+    Xns = Xns[:int(35*win_sec),:]
+
+    freqs = a.irasa_freqs[:int(35*win_sec)]
+
+    plt.imshow(Xns,origin='lower',vmax=1e-2,aspect='auto')#,y=a.irasa_freqs, aspect='auto', color_continuous_scale="thermal",zmax = 1e-2)
+    ind_ = np.arange(0,len(freqs),25)
+    plt.gca().set_yticks(ind_);
+    plt.gca().set_yticklabels(freqs[ind_]);
 
 
 </code>
