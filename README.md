@@ -1,6 +1,6 @@
 # irasa_spectrogram
 
-Extension of the [IRASA method](#refs) for time-varying spectral analyses. 
+Extension of the [IRASA method](#references) for time-varying spectral analyses. 
 
 ## Description
 
@@ -116,7 +116,7 @@ S Vattikuti, T Balkin, A Braun, S Riedy, T Doty, J Hughes (2022). 0094 Oscillato
 ## Tests
 
 
-#refs
+## References
 
 1. Wen, H., & Liu, Z. (2016). Separating Fractal and Oscillatory Components in the Power Spectrum of Neurophysiological Signal. Brain topography, 29(1), 13–26. 
 2. Vallat, Raphael, and Matthew P. Walker. “An open-source, high-performance tool for automated sleep staging.” Elife 10 (2021). 
