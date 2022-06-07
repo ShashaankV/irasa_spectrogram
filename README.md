@@ -58,6 +58,7 @@ The primary implementation involves generating an irasa_spectrogram object. The 
 As shown in the examples notebook, an example implementation using physionet data is:
 
 <code>
+    
     from irasa import *
     
     ## fetch_data is part of the mne library and should be installed/loaded when you installed irasa_spectrogram
