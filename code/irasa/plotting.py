@@ -4,7 +4,7 @@ from matplotlib import rc
 from matplotlib import rcParams
 import matplotlib.pyplot as plt
 plt.ion()
-import seaborn as sns
+
 from mpl_toolkits import mplot3d
 import numpy as np
 import pandas as pd
