@@ -104,7 +104,7 @@ As shown in the examples notebook, an example implementation using physionet dat
 
 Running the code above should result in this normalized oscillatory spectral plot.
 
-![alt text]()
+![alt text](https://github.com/ShashaankV/irasa_spectrogram/blob/main/figures/norm_irasa_spec.png)
 
 ## Cite
 
