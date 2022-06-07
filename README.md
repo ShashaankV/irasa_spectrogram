@@ -115,6 +115,7 @@ S Vattikuti, T Balkin, A Braun, S Riedy, T Doty, J Hughes (2022). 0094 Oscillato
 
 ## Tests
 
+a.spectrogram - 30-60 seconds for 20 hours 100Hz EEG single channel using MacBook Air 1.1 GHz Quad-Core Intel Core i5 and 16 GB 3733 MHz LPDDR4X
 
 ## References
 
