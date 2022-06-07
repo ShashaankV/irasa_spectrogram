@@ -16,7 +16,7 @@ In practice (see /notebook/example.ipynb) this works fairly well based on our pr
 <b>Motivation</b> <it>irasa_spectrogram</it> extends the algorithm implemented by [Vallat and Walker](#refs) which was written for a single power spectrum over an entire time seires. We are interested in tracking changes in the oscillatory (and aperiodic) across time. Thus, we extended this method to generate a time-frequency series (aka spectrogram). 
 <!-- [insert figure] -->
 
-In addition, the extended methods and parameters used here were motivated by several use cases: examining different stages of sleep, comparing oscillatory bands across sleep, and predicting sleep effects in performance. Thus, we've included methods to align the IRASA spectrograms with conventional sleep staging, compare oscillatory bands, smoothing to enhance signal (validated by [predictive performance (2)](#refs)), etc.  
+In addition, the extended methods and parameters used here were motivated by several use cases: examining different stages of sleep, comparing oscillatory bands across sleep, and predicting sleep effects in performance. Thus, we've included methods to align the IRASA spectrograms with conventional sleep staging, compare oscillatory bands, smoothing to enhance signal (validated by [predictive performance](#refs)), etc.  
 
 
 
@@ -39,7 +39,7 @@ Install using pip -->
 
 Troubleshooting:
 
-If it fails to install then try upgrading pip. Alternatively you can download the source code and add to your path. Note this does not ensure that the other library requirements are installed. 
+If pip fails to install then try upgrading pip. Alternatively you can download the source code and add to your path. Note using the source code directly, does not ensure that the other library requirements are installed. 
 
 ## Usage
 
