@@ -52,7 +52,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ```md
     ![alt text](assets/images/screenshot.png) -->
 
-<b>Highly recommend going through the examples.ipynb.</b>
+<b>Highly recommend going through the example.ipynb.</b>
 
 The primary implementation involves generating an irasa_spectrogram object. The only required argument is an MNE raw datafile. Optional arguments are:  ch (channel name), epoch_mask (table with binary filter for kept epochs), dfstg (pandas dataframe with scored sleep staging), conj_eye (boolean whether L/R eog is present and whether to calculate conjugate eye-movement), epoch_sec (window in seconds for epoch-level irasa), win_sec (window in sec for Welch-type method for FFT), h_ (array of upsample ratios).
 
@@ -116,7 +116,7 @@ S Vattikuti, T Balkin, A Braun, S Riedy, T Doty, J Hughes (2022). 0094 Oscillato
 ## Tests
 
 
-## References
+#refs
 
 1. Wen, H., & Liu, Z. (2016). Separating Fractal and Oscillatory Components in the Power Spectrum of Neurophysiological Signal. Brain topography, 29(1), 13–26. 
 2. Vallat, Raphael, and Matthew P. Walker. “An open-source, high-performance tool for automated sleep staging.” Elife 10 (2021). 
