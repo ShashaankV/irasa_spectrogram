@@ -102,6 +102,10 @@ As shown in the examples notebook, an example implementation using physionet dat
 
 </code>
 
+Running the code above should result in this normalized oscillatory spectral plot.
+
+![alt text]()
+
 ## Cite
 
 For citing use:
