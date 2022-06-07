@@ -76,7 +76,15 @@ As shown in the examples notebook, an example implementation using physionet dat
     a = irasa_spectrogram(raw_mne=raw,ch='EEG Fpz-Cz',dfstg=dfstg,win_sec=win_sec)
 
     a.spectrogram()
-
+    
+    ## plot the per-epoch normalized oscillatory spectrum
+    
+    X = np.array(gaussian_filter(a.Xosc,sigma=4))
+    bdnorm = np.tile(np.sum(X[1:int(4*win_sec),:],0),[np.shape(X)[0],1])
+    Xn = X/bdnorm
+    fig = px.imshow(Xn,origin='lower',y=a.irasa_freqs, aspect='auto', color_continuous_scale="thermal",zmax = 1e-2)
+    fig.update_traces(hovertemplate=None,hoverinfo='skip')
+    fig.show()
 
 
 </code>
