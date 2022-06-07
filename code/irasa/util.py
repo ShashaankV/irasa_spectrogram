@@ -25,7 +25,15 @@ bands['sigma'] = (12,15)
 bands['beta'] = (15,35)
 bands['gamma_low'] = (30,50)
 
+def smoothX_2D(X):
+    X = np.array(medfilt2d(X,[1,15]))
+    X = np.array(gaussian_filter(X,sigma=8))
+    return X
 
+def smoothx_1D(x):
+    x = medfilt(x,15)
+    x = gaussian_filter1d(x,sigma=8)
+    return x
 
 
 def find_next(x0,x_):
