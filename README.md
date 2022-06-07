@@ -56,7 +56,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 The primary implementation involves generating an irasa_spectrogram object. The only required argument is an MNE raw datafile. Optional arguments are:  ch (channel name), epoch_mask (table with binary filter for kept epochs), dfstg (pandas dataframe with scored sleep staging), conj_eye (boolean whether L/R eog is present and whether to calculate conjugate eye-movement), epoch_sec (window in seconds for epoch-level irasa), win_sec (window in sec for Welch-type method for FFT), h_ (array of upsample ratios).
 
-As shown in the examples notebook, an example implementation using physionet data is:
+Here is an example implementation using physionet data:
 
 <code>
     
