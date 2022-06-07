@@ -10,8 +10,7 @@ import gc
 import fractions
 from numpy.fft import irfft, rfftfreq
 from typing import List, Tuple
-import logging
-logger = logging.getLogger('irasa')
+
 from tqdm.auto import tqdm
 from functools import reduce
 import intervaltree
