@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm as Normal
 from scipy.signal import welch, resample_poly, butter, sosfilt, detrend
+from scipy.signal import medfilt2d
+from scipy.signal import medfilt
+from scipy.ndimage import gaussian_filter 
 import gc
 import fractions
 from numpy.fft import irfft, rfftfreq
@@ -25,14 +28,14 @@ bands['sigma'] = (12,15)
 bands['beta'] = (15,35)
 bands['gamma_low'] = (30,50)
 
-def smoothX_2D(X):
-    X = np.array(medfilt2d(X,[1,15]))
-    X = np.array(gaussian_filter(X,sigma=8))
+def smoothX_2D(X,median_x=15,median_y=1,sig=8):
+    X = np.array(medfilt2d(X,[median_y,median_x]))
+    X = np.array(gaussian_filter(X,sigma=sig))
     return X
 
-def smoothx_1D(x):
-    x = medfilt(x,15)
-    x = gaussian_filter1d(x,sigma=8)
+def smoothx_1D(x,median_x=15,sig=8):
+    x = medfilt(x,median_x)
+    x = gaussian_filter1d(x,sigma=sig)
     return x
 
 
