@@ -27,7 +27,8 @@ In addition, the extended methods and parameters used here were motivated by sev
 
 - [Installation](#installation)
 - [Usage](#usage)
-<!-- - [Tests](#tests) -->
+- [References](#refs)
+
 
 
 ## Installation
@@ -54,6 +55,13 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 The primary implementation involves generating an irasa_spectrogram object. The only required argument is an MNE raw datafile. Optional arguments are:  ch (channel name), epoch_mask (table with binary filter for kept epochs), dfstg (pandas dataframe with scored sleep staging), conj_eye (boolean whether L/R eog is present and whether to calculate conjugate eye-movement), epoch_sec (window in seconds for epoch-level irasa), win_sec (window in sec for Welch-type method for FFT), h_ (array of upsample ratios).
 
+As shown in the examples notebook, this a typical implementation:
+
+<code>
+from irasa import *
+
+</code>
+
 ## Credits
 
 If you use this package please cite:
@@ -61,7 +69,7 @@ If you use this package please cite:
 Shashaank Vattikuti, Thomas Balkin, Allen Braun, Samantha Riedy, Tracy Doty, John Hughes, 0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep, Sleep, Volume 45, Issue Supplement_1, June 2022, Pages A42–A43, https://doi.org/10.1093/sleep/zsac079.092
 
 
-    ```
+<!--     ```
 
 
 ## License
@@ -85,3 +93,4 @@ If you created an application or package and would like other developers to cont
 ## Tests
 
 Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+ -->
