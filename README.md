@@ -108,8 +108,14 @@ For citing use:
 
 <b>0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep </b> Shashaank Vattikuti, Thomas Balkin, Allen Braun, Samantha Riedy, Tracy Doty, John Hughes <i>Sleep</i>, Volume 45, Issue Supplement_1, June 2022, Pages A42–A43, https://doi.org/10.1093/sleep/zsac079.092
 
+## Tests
+
+
 ## References
 
-## Tests
+1. Wen, H., & Liu, Z. (2016). Separating Fractal and Oscillatory Components in the Power Spectrum of Neurophysiological Signal. Brain topography, 29(1), 13–26. https://doi.org/10.1007/s10548-015-0448-0
+2. Vallat, Raphael, and Matthew P. Walker. “An open-source, high-performance tool for automated sleep staging.” Elife 10 (2021). doi: https://doi.org/10.7554/eLife.70092
+3. S Vattikuti, T Balkin, A Braun, S Riedy, T Doty, J Hughes (2022). 0097 REM-like Neural Activity Is Superior to NREM Parameters for Predicting Non-sleep Restricted Vigilance. Sleep 45 (Supplement_1), A43-A44
+
 
 
