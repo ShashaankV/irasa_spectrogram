@@ -55,10 +55,28 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 The primary implementation involves generating an irasa_spectrogram object. The only required argument is an MNE raw datafile. Optional arguments are:  ch (channel name), epoch_mask (table with binary filter for kept epochs), dfstg (pandas dataframe with scored sleep staging), conj_eye (boolean whether L/R eog is present and whether to calculate conjugate eye-movement), epoch_sec (window in seconds for epoch-level irasa), win_sec (window in sec for Welch-type method for FFT), h_ (array of upsample ratios).
 
-As shown in the examples notebook, this a typical implementation:
+As shown in the examples notebook, an example implementation using physionet data is:
 
 <code>
-from irasa import *
+    from irasa import *
+    
+    ## fetch_data is part of the mne library and should be installed/loaded when you installed irasa_spectrogram
+    data = fetch_data(subjects=[3], recording=[1])[0]
+
+    raw = mne.io.read_raw_edf(data[0], stim_channel='Event marker',
+                                misc=['Temp rectal'])
+    annot = mne.read_annotations(data[1])
+
+    ##  mneannot_2_dfstg is an irasa_spectrogram helper function to get the physionet staging file in the proper format   
+    dfstg = mneannot_2_dfstg(annot,raw,dic_stg2num)
+
+    win_sec = 10
+
+    a = irasa_spectrogram(raw_mne=raw,ch='EEG Fpz-Cz',dfstg=dfstg,win_sec=win_sec)
+
+    a.spectrogram()
+
+
 
 </code>
 
@@ -66,7 +84,7 @@ from irasa import *
 
 If you use this package please cite:
 
-Shashaank Vattikuti, Thomas Balkin, Allen Braun, Samantha Riedy, Tracy Doty, John Hughes, 0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep, Sleep, Volume 45, Issue Supplement_1, June 2022, Pages A42–A43, https://doi.org/10.1093/sleep/zsac079.092
+<b>0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep </b> Shashaank Vattikuti, Thomas Balkin, Allen Braun, Samantha Riedy, Tracy Doty, John Hughes <i>Sleep</i>, Volume 45, Issue Supplement_1, June 2022, Pages A42–A43, https://doi.org/10.1093/sleep/zsac079.092
 
 
 <!--     ```
