@@ -106,7 +106,7 @@ As shown in the examples notebook, an example implementation using physionet dat
 
 For citing use:
 
-<b>0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep </b> Shashaank Vattikuti, Thomas Balkin, Allen Braun, Samantha Riedy, Tracy Doty, John Hughes <i>Sleep</i>, Volume 45, Issue Supplement_1, June 2022, Pages A42–A43, https://doi.org/10.1093/sleep/zsac079.092
+S Vattikuti, T Balkin, A Braun, S Riedy, T Doty, J Hughes (2022). 0094 Oscillatory Theta-Band Activity as a Sleep Stage Independent Measure of REM-like Activity throughout Sleep. Sleep 45 (Supplement_1), A43-A44
 
 ## Tests
 
