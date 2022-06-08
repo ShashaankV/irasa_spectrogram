@@ -6,6 +6,7 @@ from scipy.signal import welch, resample_poly, butter, sosfilt, detrend
 from scipy.signal import medfilt2d
 from scipy.signal import medfilt
 from scipy.ndimage import gaussian_filter 
+from scipy.ndimage import gaussian_filter1d 
 import gc
 import fractions
 from numpy.fft import irfft, rfftfreq
