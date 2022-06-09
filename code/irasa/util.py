@@ -114,6 +114,12 @@ def get_intervals(t_,x_,tol=30): #x is a binary state vector
 
 def package_spec(a,eye=False):
     df_ = []
+
+    dftod = pd.DataFrame(a.ToD)
+    dftod.columns = ['ToD']
+    df_.append(dftod)
+
+
     df0 = pd.DataFrame(a.stage)
     df0.columns = ['stage']
     df_.append(df0)
@@ -242,6 +248,7 @@ class irasa_spectrogram:
     def irasa_epoch(self,a):
         epoch = a[0]
         a = a[1]#self.epoched.get_group(epoch)
+        self.ToD[epoch-1] = np.datetime64(a.time.values[0])
         # print(len(a))
         ## run IRASA
         self.irasa_freqs, self.irasa_raw, irasa_ap, irasa_osc = irasa(a[self.ch],sf=self.sf,win_sec=self.win_sec,h_=self.h_)
@@ -287,7 +294,7 @@ class irasa_spectrogram:
         p = df.epoch.max()
 
         # self.epoched = [(epoch,a) for epoch,a in self.epoched]
-
+        self.ToD = np.empty(p,dtype='datetime64[s]')
         self.Xap = np.empty((n,p))
         self.Xosc = np.empty((n,p))
         self.Xap[:] = np.nan
