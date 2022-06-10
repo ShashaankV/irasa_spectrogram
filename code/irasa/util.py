@@ -248,7 +248,8 @@ class irasa_spectrogram:
     def irasa_epoch(self,a):
         epoch = a[0]
         a = a[1]#self.epoched.get_group(epoch)
-        self.ToD[epoch-1] = np.datetime64(a.time.values[0])
+        self.ToD[epoch-1] = np.datetime64(a.time.values[0],'s')
+        # print((epoch,a.time.values[0]))
         # print(len(a))
         ## run IRASA
         self.irasa_freqs, self.irasa_raw, irasa_ap, irasa_osc = irasa(a[self.ch],sf=self.sf,win_sec=self.win_sec,h_=self.h_)
@@ -291,12 +292,13 @@ class irasa_spectrogram:
         self.epoched = df.groupby('epoch')
 
         n = int(0.5*self.sf*self.win_sec) + 1 # n freq bins
-        p = df.epoch.max()
+        p = df.epoch.max()-1
 
         # self.epoched = [(epoch,a) for epoch,a in self.epoched]
         self.ToD = np.empty(p,dtype='datetime64[s]')
         self.Xap = np.empty((n,p))
         self.Xosc = np.empty((n,p))
+        
         self.Xap[:] = np.nan
         self.Xosc[:] = np.nan
         
