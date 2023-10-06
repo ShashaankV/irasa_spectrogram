@@ -16,7 +16,7 @@ from tqdm.auto import tqdm
 from functools import reduce
 import intervaltree
 
-
+from fooof import FOOOF
 
 bands = {}
 bands['SO'] = (0.5,2)
@@ -115,7 +115,7 @@ def get_intervals(t_,x_,tol=30): #x is a binary state vector
 def package_spec(a,eye=False):
     df_ = []
 
-    dftod = pd.DataFrame(a.ToD)
+    dftod = pd.DataFrame(a.ToD,dtype='datetime64[s]')
     dftod.columns = ['ToD']
     df_.append(dftod)
 
@@ -231,6 +231,8 @@ class irasa_spectrogram:
         self.epoch_sec = kwargs.get('epoch_sec',30)
         self.win_sec = kwargs.get('win_sec',4)
         self.h_ = kwargs.get('h_',np.linspace(1.01,1.5,5))
+        self.doirasa = kwargs.get('doirasa',True)
+        # self.invftype = kwargs.get('invftype','irasa')
     
     def gentime(self,raw):
         t0 = pd.to_datetime(raw.info['meas_date'], utc=True)
@@ -239,10 +241,17 @@ class irasa_spectrogram:
         t_ = pd.date_range(start=t0,end=t1,freq=f'{1/sf}S')
         return t_
 
-    def irasa_alltime(self):
+    def irasa_alltime(self,invftype='irasa'):
         sf = self.raw.info['sfreq']
         x = self.raw[self.ch][0][0,:] * 1e6 
-        self.irasa_freqs, self.irasa_raw, self.irasa_ap, self.irasa_osc = irasa(x,sf=sf,win_sec=self.win_sec)
+        if invftype=='irasa':
+            freqs, raw, ap, osc = irasa(x,sf=sf,win_sec=self.win_sec)   
+            self.irasa_alltime_obj = {}
+            self.irasa_alltime_obj['freqs'] = freqs
+            self.irasa_alltime_obj['raw'] = raw
+            self.irasa_alltime_obj['ap'] = ap
+            self.irasa_alltime_obj['osc'] = osc
+            
         return
 
     def irasa_epoch(self,a):
@@ -289,40 +298,46 @@ class irasa_spectrogram:
         df['delta_seconds'] = (pd.to_datetime(df.time.values) - t0).total_seconds()
         df['epoch'] = 1 + (df['delta_seconds']/self.epoch_sec).astype(int)
         
-        self.epoched = df.groupby('epoch')
+        if self.doirasa:
 
-        n = int(0.5*self.sf*self.win_sec) + 1 # n freq bins
-        p = df.epoch.max()-1
+            self.epoched = df.groupby('epoch')
 
-        # self.epoched = [(epoch,a) for epoch,a in self.epoched]
-        self.ToD = np.empty(p,dtype='datetime64[s]')
-        self.Xap = np.empty((n,p))
-        self.Xosc = np.empty((n,p))
-        
-        self.Xap[:] = np.nan
-        self.Xosc[:] = np.nan
-        
-        if np.shape(self.dfstg)!=():
-            self.stage = np.empty(p)
-        if self.conj_eye:
-            self.corr_eye = np.empty(p)
+            n = int(0.5*self.sf*self.win_sec) + 1 # n freq bins
+            p = df.epoch.max()#-1
 
-    
-
-        del(df)
-        gc.collect()
-
-        for epoch,a in tqdm(self.epoched):
-            ## only estimate if full epoch - could be less conservative and base this on limits of up/down sample of win_sec*sf
-            if len(a)==int(self.epoch_sec*self.sf):
-                # print(len(a))
-                self.irasa_epoch((epoch,a))
+            # self.epoched = [(epoch,a) for epoch,a in self.epoched]
+            self.ToD = np.empty(p,dtype='datetime64[s]')
+            self.Xap = np.empty((n,p))
+            self.Xosc = np.empty((n,p))
             
-
-       
+            self.Xap[:] = np.nan
+            self.Xosc[:] = np.nan
             
-        del(self.epoched,self.dfstg)
-        gc.collect()
+            if np.shape(self.dfstg)!=():
+                self.stage = np.empty(p)
+            if self.conj_eye:
+                self.corr_eye = np.empty(p)
+
+        
+
+            del(df)
+            gc.collect()
+            
+            for epoch,a in tqdm(self.epoched):
+                ## only estimate if full epoch - could be less conservative and base this on limits of up/down sample of win_sec*sf
+                if len(a)==int(self.epoch_sec*self.sf):
+                    # print(len(a))
+                    self.irasa_epoch((epoch,a))
+                else:
+                    self.ToD[epoch-1] = np.datetime64()
+                
+
+        
+                
+            del(self.epoched,self.dfstg)
+            gc.collect()
+        else:
+            self.df = df
         return
 
 
